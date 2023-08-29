@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Emulación de Ajustes de iPhone</title>
+    <style>
+        /* ... Estilos existentes ... */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .app-container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .navbar {
+            padding: 14px 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .back-button {
+            color: #007AFF;
+            cursor: pointer;
+        }
+        .back-button::before {
+            content: "< ";
+        }
+        .navbar-title {
+            margin: 0;
+        }
+        .setting-section {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            border-top: 1px solid #ccc;
+        }
+        .setting-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .toggle {
+            width: 51px;
+            height: 31px;
+            position: relative;
+        }
+        .toggle input {
+            display:none;
+        }
+        .toggle label {
+            background-color: #ccc;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+        .toggle label:before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            width: 25px;
+            height: 25px;
+            background: #fff;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            transition: left 0.3s;
+        }
+        .toggle input:checked + label {
+            background: #4CD964;
+        }
+        .toggle input:checked + label:before {
+            left: calc(100% - 5px);
+            transform: translate(-100%, -50%);
+        }
+        .setting-title {
+            font-weight: bold;
+            padding: 8px 20px;
+        }
+
+        /* Estilos del modo oscuro */
+        body.dark-mode {
+            background: #000;
+        }
+        .navbar.dark-mode {
+            background: #333;
+            color: #fff;
+            border-color: #444;
+        }
+        .setting-section.dark-mode {
+            background: #222;
+            border-color: #333;
+        }
+        .setting-item.dark-mode {
+            border-color: #333;
+            color: #fff;
+        }
+
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById("darkmode-toggle").addEventListener('change', function() {
+                if(this.checked) {
+                    document.body.classList.add('dark-mode');
+                    document.querySelectorAll('.navbar, .setting-section, .setting-item').forEach(el => el.classList.add('dark-mode'));
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    document.querySelectorAll('.navbar, .setting-section, .setting-item').forEach(el => el.classList.remove('dark-mode'));
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="app-container">
+        <div class="navbar">
+            <span class="back-button">Atrás</span>
+            <span class="navbar-title">Ajustes</span>
+            <span></span> <!-- Espaciador -->
+        </div>
+        
+        <!-- Sección de ajustes de Modo Avión y No molestar -->
+        <div class="setting-section">
+            <div class="setting-title">General</div>
+            <div class="setting-item">
+                <span>Modo Avión</span>
+                <div class="toggle">
+                    <input type="checkbox" id="airplane-toggle">
+                    <label for="airplane-toggle"></label>
+                </div>
+            </div>
+            <div class="setting-item">
+                <span>No molestar</span>
+                <div class="toggle">
+                    <input type="checkbox" id="dnd-toggle">
+                    <label for="dnd-toggle"></label>
+                </div>
+            </div>
+            <div class="setting-item">
+                <span>Modo oscuro</span>
+                <div class="toggle">
+                    <input type="checkbox" id="darkmode-toggle">
+                    <label for="darkmode-toggle"></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de ajustes de Conexiones -->
+        <div class="setting-section">
+            <div class="setting-title">Conexiones</div>
+            <div class="setting-item">
+                <span>Wi-Fi</span>
+                <div class="toggle">
+                    <input type="checkbox" id="wifi-toggle">
+                    <label for="wifi-toggle"></label>
+                </div>
+            </div>
+            <div class="setting-item">
+                <span>Bluetooth</span>
+                <div class="toggle">
+                    <input type="checkbox" id="bluetooth-toggle">
+                    <label for="bluetooth-toggle"></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de ajustes de Sonidos -->
+        <div class="setting-section">
+            <div class="setting-title">Sonidos</div>
+            <div class="setting-item">
+                <span>Volumen</span>
+                <input type="range">
+            </div>
+            <div class="setting-item">
+                <span>Vibración</span>
+                <div class="toggle">
+                    <input type="checkbox" id="vibration-toggle">
+                    <label for="vibration-toggle"></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de ajustes de Pantalla -->
+        <div class="setting-section">
+            <div class="setting-title">Pantalla</div>
+            <div class="setting-item">
+                <span>Brillo</span>
+                <input type="range">
+            </div>
+            <div class="setting-item">
+                <span>Resolución</span>
+                <input type="range">
+            </div>
+        </div>
+    </div>
+</div></div>
+</body>
+</html>
+
