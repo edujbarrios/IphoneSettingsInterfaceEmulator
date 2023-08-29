@@ -1,7 +1,8 @@
 
 
 ## 📱 Emulación de Ajustes de iPhone 📱
-Este proyecto es una emulación simple de la interfaz de la aplicación "Ajustes" de un iPhone. Fue creado con HTML, CSS y un poco de JavaScript para activar el "Modo oscuro" a modo de preview. Peor a su vez, proporcionando el código respectivo en el lenguaje de progrmación por excelencia de Apple, Swift. 🌙
+Este proyecto es una emulación simple de la interfaz de la aplicación "Ajustes" de un iPhone. Fue creado con HTML, CSS y un poco de JavaScript para activar el "Modo oscuro" a modo de preview. 
+A su vez, proporcionando el código respectivo en el lenguaje de progrmación por excelencia de Apple, Swift. 🌙
 
 ## 👤 Autor
 Eduardo J. Barrios
